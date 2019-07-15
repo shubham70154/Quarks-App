@@ -1,0 +1,28 @@
+<div>
+  <h2>
+    Current Time : {{CurrentTime| date:"hh:mm:ss a"}}
+  </h2>
+  <ng-container *ngIf="showDate">
+    <button  (click)="functiontoShowDate()">
+      Hide current date
+    </button>
+  </ng-container>
+  
+  <ng-container *ngIf="!showDate">
+    <button (click)="functiontoShowDate()">
+      Show current date
+    </button>
+  </ng-container>
+
+  <h2 *ngIf="showDate">
+      {{CurrentTime | date:'dd-MM-yyyy'}}
+  </h2>
+</div>
+
+<br>
+<div>
+  <button (click)="gotoGiphyPage()">Go to giphy Page</button>
+</div>
+
+
+

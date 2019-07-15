@@ -1,0 +1,40 @@
+<div style="width: 100%">
+  <input type="text" style="width:30%" required name="searchString" placeholder="Enter search string ex: ryan gosling"
+    #searchString (keyup)="HideError(searchString.value)">
+  <br>
+  <span *ngIf="showError" [ngStyle]="{'color':'red'}">this field is required.</span>
+  <br>
+  <br>
+  <button (click)="getGiphydata(searchString.value)">Search</button>
+</div>
+
+
+<br>
+<br>
+
+<ng-container *ngIf="showGiphyData">
+  <table style="width:100%">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Type</th>
+        <th>Source Url</th>
+        <th>Title</th>
+        <th>Url</th>
+        <th>Username</th>
+        <th>Import Datetime</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of giphydata.data">
+        <td>{{data.id}}</td>
+        <td>{{data.type}}</td>
+        <td>{{data.source_tld}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.url}}</td>
+        <td>{{data.username}}</td>
+        <td>{{data.import_datetime | date:'dd-MM-yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
